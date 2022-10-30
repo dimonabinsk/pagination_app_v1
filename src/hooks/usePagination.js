@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-
+import PropTypes from "prop-types";
 const DOTS = "...";
 
 const range = (start, end) => {
@@ -84,5 +84,14 @@ const usePagination = ({
 
   return paginationRange;
 };
+usePagination.propTypes = {
+  totalCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  siblingCount: PropTypes.number,
+  currentPage: PropTypes.number.isRequired,
+};
 
+usePagination.defaultProps = {
+  siblingCount: 1,
+};
 export { usePagination, DOTS };
